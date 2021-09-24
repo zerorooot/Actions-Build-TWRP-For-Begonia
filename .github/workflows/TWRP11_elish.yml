@@ -23,7 +23,7 @@ on:
 env:
   Rec_name: TWRP11
   Rec_ver: 3.5.2
-  Rec_url: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-11
+  Rec_url: git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
   device: elish
   DT_url: https://github.com/AngryBeeSec/android_xiaomi_elish_twrp
   DT_path: device/xiaomi/elish
@@ -47,10 +47,7 @@ jobs:
         run: |
           sudo -E apt-get clean
           sudo -E apt-get -qq update
-          sudo apt install git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev tree lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip jq
-          mkdir ~/bin
-          curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-          chmod a+x ~/bin/repo
+          sudo apt install git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev tree lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip jq repo
           git config --global user.name "RC1844"
           git config --global user.email "1844766234@qq.com"
         #  git clone https://gitlab.com/OrangeFox/misc/scripts --depth=1 --single-branch
@@ -62,7 +59,7 @@ jobs:
         run: |
           mkdir ${{env.WorkSpace}}
           cd ${{env.WorkSpace}}
-          repo init -u ${{env.Rec_url}} --depth=1 --groups=all,-notdefault,-device,-darwin,-x86,-mips
+          repo init --depth=1 -u  ${{env.Rec_url}}
           repo sync -j4
 
       - name: Sync device tree
