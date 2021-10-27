@@ -85,7 +85,7 @@ jobs:
       - name: Building ${{env.Rec_name}}
         run: |
           cd ${{env.WorkSpace}}
-          export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_${{ env.device }}-eng; mka ${{env.target}}
+          export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch omni_${{ env.device }}-eng; mka ${{env.target}}
         shell: bash
 
       - name: Get info
