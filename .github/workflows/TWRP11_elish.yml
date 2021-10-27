@@ -25,7 +25,7 @@ env:
   Rec_ver: 3.5.2
   Rec_url: git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
   device: elish
-  DT_url: https://github.com/AngryBeeSec/android_xiaomi_elish_twrp
+  DT_url: https://github.com/zerorooot/twrp_device_tree_elish.git
   DT_path: device/xiaomi/elish
   target: recoveryimage
   WorkSpace: WorkSpace
