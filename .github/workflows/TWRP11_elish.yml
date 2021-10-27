@@ -11,14 +11,6 @@ on:
   #  schedule:
   #    - cron: 0 8 * * 5
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-    inputs:
-      crypto:
-        description: "是否禁用加密模块，true or false"
-        required: false
-        default: "false"
-  # watch:
-  #   types: [started]
 
 env:
   Rec_name: TWRP11
@@ -85,7 +77,7 @@ jobs:
       - name: Building ${{env.Rec_name}}
         run: |
           cd ${{env.WorkSpace}}
-          export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch omni_${{ env.device }}-eng; mka ${{env.target}}
+          export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_${{ env.device }}-eng; mka ${{env.target}}
         shell: bash
 
       - name: Get info
