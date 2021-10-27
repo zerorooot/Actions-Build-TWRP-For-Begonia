@@ -11,7 +11,15 @@ on:
   #  schedule:
   #    - cron: 0 8 * * 5
   # Allows you to run this workflow manually from the Actions tab
-
+  workflow_dispatch:
+    inputs:
+      crypto:
+        description: "是否禁用加密模块，true or false"
+        required: false
+        default: "false"
+  # watch:
+  #   types: [started]
+        
 env:
   Rec_name: TWRP11
   Rec_ver: 3.5.2
