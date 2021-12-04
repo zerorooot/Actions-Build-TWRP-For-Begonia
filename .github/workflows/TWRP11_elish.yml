@@ -25,7 +25,7 @@ env:
   Rec_ver: 3.5.2
   Rec_url: git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
   device: elish
-  DT_url: https://github.com/mujianwu/TWRP-xiaomi-elish.git
+  DT_url: https://github.com/AngryBeeSec/android_xiaomi_elish_twrp.git
   DT_path: device/xiaomi/elish
   target: recoveryimage
   WorkSpace: WorkSpace
@@ -85,7 +85,7 @@ jobs:
       - name: Building ${{env.Rec_name}}
         run: |
           cd ${{env.WorkSpace}}
-          export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch omni_${{ env.device }}-eng; mka ${{env.target}}
+          export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_${{ env.device }}-eng; mka ${{env.target}}
         shell: bash
 
       - name: Get info
